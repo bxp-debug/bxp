@@ -1,9 +1,30 @@
 /* ======================================== */
+/*               ОСНОВНЫЕ ЦВЕТА             */
+/* ======================================== */
+:root {
+    --bg-main: #07110d;                 /* Почти черный с зеленым оттенком */
+    --bg-panel: #101c17;                /* Темно-зеленый для панелей */
+    --border-color: #1a3b2c;            /* Зеленый для рамок */
+    
+    --text-light: #ecf5f1;              /* Светлый текст (почти белый) */
+    --text-muted: #a6c5b9;              /* Приглушенный серо-зеленый текст */
+    --text-dark: #07110d;               /* Темный текст для светлых кнопок */
+
+    --accent-primary: #34d399;          /* Яркий изумрудный для кнопок и ссылок */
+    --accent-primary-hover: #2ac08e;    /* Тот же цвет, но темнее для наведения */
+
+    --accent-secondary: #224433;        /* Вторичный, более темный зеленый */
+    --accent-secondary-hover: #2a5540;
+
+    --tag-bg: #c0392b;                  /* Оставим красный для тегов версий, чтобы он выделялся */
+}
+
+/* ======================================== */
 /*               ОБЩИЕ СТИЛИ                */
 /* ======================================== */
 body {
-    background-color: #0f0f1a;
-    color: #e0e0e0;
+    background-color: var(--bg-main);
+    color: var(--text-light);
     font-family: 'Roboto', sans-serif;
     margin: 0;
     display: flex;
@@ -22,9 +43,9 @@ body {
 /*                  ШАПКА                   */
 /* ======================================== */
 .site-header {
-    background-color: #1e1e2f;
+    background-color: var(--bg-panel);
     padding: 15px 40px;
-    border-bottom: 1px solid #2a2a3a;
+    border-bottom: 1px solid var(--border-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -44,11 +65,11 @@ body {
 }
 
 .logo-link:hover {
-    background-color: #34495e;
+    background-color: var(--accent-secondary);
 }
 
 .logo-text {
-    color: #ffffff;
+    color: var(--text-light);
     font-weight: bold;
     font-size: 24px;
 }
@@ -59,23 +80,23 @@ body {
 }
 
 .btn-discover {
-    color: #c0c0c0;
+    color: var(--text-muted);
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
     padding: 8px 15px;
     border-radius: 5px;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .btn-discover:hover {
-    background-color: #34495e;
-    color: #ffffff;
+    background-color: var(--accent-secondary);
+    color: var(--text-light);
 }
 
 .btn-discover.active {
-    background-color: #34495e;
-    color: #ffffff;
+    background-color: var(--accent-secondary);
+    color: var(--text-light);
     cursor: default;
 }
 
@@ -87,8 +108,8 @@ body {
 }
 
 .lang-btn {
-    color: #ffffff;
-    border: 1px solid #2a2a3a;
+    color: var(--text-light);
+    border: 1px solid var(--border-color);
     padding: 8px 12px;
     text-decoration: none;
     font-size: 14px;
@@ -98,14 +119,14 @@ body {
 }
 
 .lang-btn:hover {
-    background-color: #34495e;
-    border-color: #34495e;
+    background-color: var(--accent-secondary);
+    border-color: var(--accent-secondary);
 }
 
 .lang-btn.active {
-    background-color: #ffffff;
-    color: #1e1e2f;
-    border-color: #ffffff;
+    background-color: var(--text-light);
+    color: var(--text-dark);
+    border-color: var(--text-light);
     cursor: default;
 }
 
@@ -119,23 +140,25 @@ body {
     gap: 25px;
 }
 .mod-card {
-    background-color: #1e1e2f;
+    background-color: var(--bg-panel);
     border-radius: 8px;
     text-decoration: none;
-    color: #e0e0e0;
+    color: var(--text-light);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid transparent;
 }
 .mod-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-color: var(--border-color);
 }
 .mod-card-image-container {
     width: 100%;
     aspect-ratio: 16 / 9;
-    background-color: #111122;
+    background-color: var(--bg-main);
 }
 .mod-card-image-container img {
     width: 100%;
@@ -151,7 +174,7 @@ body {
 .mod-card-title {
     font-size: 18px;
     font-weight: 500;
-    color: #ffffff;
+    color: var(--text-light);
     margin: 0 0 10px 0;
 }
 .mod-card-description {
@@ -159,29 +182,28 @@ body {
     line-height: 1.5;
     margin: 0;
     flex-grow: 1;
-    color: #a0a0a0;
+    color: var(--text-muted);
 }
 .mod-title {
     font-size: 32px;
     font-weight: 500;
-    color: #ffffff;
+    color: var(--text-light);
     margin: 0 0 25px 0;
     text-align: center;
 }
 .top-section {
     display: flex;
     gap: 40px;
-    align-items: center; 
+    align-items: flex-start; 
     margin-bottom: 30px;
-}
 }
 .mod-preview-container {
     flex: 1;
     min-width: 0;
 }
 .mod-preview {
-    background-color: #1a1a2a;
-    border: 1px solid #2a2a3a;
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 15px;
 }
@@ -197,7 +219,7 @@ body {
     flex-shrink: 0;
 }
 .mod-description-box {
-    background-color: #1e1e2f;
+    background-color: var(--bg-panel);
     border-radius: 8px;
     padding: 30px;
     font-size: 16px;
@@ -205,8 +227,8 @@ body {
 .mod-description-box h3 {
     font-size: 20px;
     font-weight: 500;
-    color: #ffffff;
-    margin: 0 0 20px 0;
+    color: var(--text-light);
+    margin: 30px 0 20px 0;
 }
 .mod-description-box ul, .mod-description-box ol {
     padding-left: 25px;
@@ -214,10 +236,10 @@ body {
 }
 .mod-description-box li {
     margin-bottom: 10px;
-    color: #c0c0c0;
+    color: var(--text-muted);
 }
 .mod-description-box a {
-    color: #f39c12;
+    color: var(--accent-primary);
     text-decoration: none;
     font-weight: 500;
 }
@@ -227,9 +249,10 @@ body {
 .mod-description-box p {
     line-height: 1.6;
     margin: 0;
+    color: var(--text-muted);
 }
 .widget {
-    background-color: #1e1e2f;
+    background-color: var(--bg-panel);
     padding: 25px;
     border-radius: 8px;
     margin-bottom: 20px;
@@ -250,21 +273,24 @@ body {
     transition: background-color 0.2s ease;
 }
 .btn-download {
-    background-color: #2ecc71;
-    color: #ffffff;
+    background-color: var(--accent-primary);
+    color: var(--text-dark);
+}
+.btn-download:hover {
+    background-color: var(--accent-primary-hover);
 }
 .btn-secondary {
-    background-color: #34495e;
-    color: #ecf0f1;
+    background-color: var(--accent-secondary);
+    color: var(--text-light);
 }
 .btn-secondary:hover {
-    background-color: #4c6680;
+    background-color: var(--accent-secondary-hover);
 }
 .widget .btn + .btn {
     margin-top: 10px;
 }
 .verified-text {
-    color: #2ecc71;
+    color: var(--accent-primary);
     font-size: 12px;
     text-align: center;
     margin: 10px 0 0 0;
@@ -278,11 +304,11 @@ body {
 .creator-name {
     font-weight: bold;
     font-size: 16px;
-    color: #fff;
+    color: var(--text-light);
 }
 .verified-badge {
-    background-color: #27ae60;
-    color: #fff;
+    background-color: var(--accent-primary);
+    color: var(--text-dark);
     padding: 3px 8px;
     border-radius: 12px;
     font-size: 11px;
@@ -297,7 +323,7 @@ body {
     align-items: center;
 }
 .info-grid strong {
-    color: #a0a0a0;
+    color: var(--text-muted);
     font-weight: 400;
 }
 .info-grid span, .info-grid .rating-stars, .required-links-container {
@@ -305,18 +331,18 @@ body {
     justify-self: end;
 }
 .info-grid .version, .info-grid .compatibility {
-    background-color: #c0392b;
+    background-color: var(--tag-bg);
     color: #fff;
     padding: 4px 9px;
     border-radius: 4px;
     font-size: 13px;
 }
 .info-grid .downloads-count {
-    color: #2ecc71;
+    color: var(--accent-primary);
     font-weight: 500;
 }
 .info-grid .rating-stars {
-    color: #f39c12;
+    color: var(--accent-primary);
     font-size: 18px;
 }
 .required-links-container {
@@ -326,7 +352,7 @@ body {
     gap: 5px;
 }
 .required-links-container a {
-    color: #f39c12;
+    color: var(--accent-primary);
     text-decoration: none;
 }
 
@@ -336,12 +362,12 @@ body {
 .page-title {
     font-size: 32px;
     font-weight: 500;
-    color: #ffffff;
+    color: var(--text-light);
     margin-bottom: 40px;
     text-align: center;
 }
 .about-content {
-    background-color: #1e1e2f;
+    background-color: var(--bg-panel);
     border-radius: 8px;
     padding: 40px;
     max-width: 900px;
@@ -353,14 +379,14 @@ body {
 .about-content .about-subtitle {
     font-size: 24px;
     font-weight: 500;
-    color: #ffffff;
+    color: var(--text-light);
     margin-top: 40px;
     margin-bottom: 15px;
-    border-bottom: 1px solid #2a2a3a;
+    border-bottom: 1px solid var(--border-color);
     padding-bottom: 10px;
 }
 .btn-discord {
-    background-color: #5865F2;
+    background-color: #5865F2; /* Discord brand color */
     color: #ffffff;
     display: inline-block;
     margin-top: 10px;
@@ -370,13 +396,13 @@ body {
     background-color: #4a54c9;
 }
 .contact-email-box {
-    background-color: #0f0f1a;
-    border: 1px solid #2a2a3a;
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
     border-radius: 5px;
     padding: 15px 20px;
     font-size: 16px;
     font-weight: 500;
-    color: #e0e0e0;
+    color: var(--text-light);
     margin-top: 10px;
     text-align: center;
 }
@@ -389,7 +415,7 @@ body {
     margin: 0 auto;
 }
 .news-post {
-    background-color: #1e1e2f;
+    background-color: var(--bg-panel);
     border-radius: 8px;
     padding: 30px;
     margin-bottom: 30px;
@@ -397,21 +423,21 @@ body {
 .news-title {
     font-size: 24px;
     font-weight: 500;
-    color: #ffffff;
+    color: var(--text-light);
     margin: 0 0 5px 0;
 }
 .news-date {
     font-size: 14px;
-    color: #a0a0a0;
+    color: var(--text-muted);
     margin: 0 0 20px 0;
 }
 .news-content p, .news-content li {
     font-size: 16px;
     line-height: 1.7;
-    color: #c0c0c0;
+    color: var(--text-muted);
 }
 .news-content a {
-    color: #f39c12;
+    color: var(--accent-primary);
     text-decoration: none;
     font-weight: 500;
 }
@@ -433,9 +459,9 @@ body {
     margin-top: 40px;
 }
 .pagination-btn {
-    background-color: #1e1e2f;
-    color: #c0c0c0;
-    border: 1px solid #2a2a3a;
+    background-color: var(--bg-panel);
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
     border-radius: 5px;
     padding: 8px 14px;
     font-size: 14px;
@@ -444,13 +470,13 @@ body {
     transition: all 0.2s ease;
 }
 .pagination-btn:hover {
-    background-color: #34495e;
-    color: #ffffff;
+    background-color: var(--accent-secondary);
+    color: var(--text-light);
 }
 .pagination-btn.active {
-    background-color: #ffffff;
-    color: #1e1e2f;
-    border-color: #ffffff;
+    background-color: var(--text-light);
+    color: var(--text-dark);
+    border-color: var(--text-light);
     cursor: default;
 }
 
@@ -458,10 +484,10 @@ body {
 /*                   ФУТЕР                  */
 /* ======================================== */
 .site-footer-main {
-    background-color: #1e1e2f;
+    background-color: var(--bg-panel);
     padding: 30px 40px;
-    border-top: 1px solid #2a2a3a;
-    color: #a0a0a0;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
     margin-top: auto;
 }
 .footer-content {
@@ -480,19 +506,18 @@ body {
     gap: 25px;
 }
 .footer-nav a {
-    color: #a0a0a0;
+    color: var(--text-muted);
     text-decoration: none;
     font-size: 14px;
     transition: color 0.2s ease;
 }
 .footer-nav a:hover {
-    color: #ffffff;
+    color: var(--text-light);
 }
 /* ======================================== */
 /*           АДАПТИВНОЕ МЕНЮ (MOBILE)       */
 /* ======================================== */
 
-/* --- Сначала скрываем бургер на ПК --- */
 .mobile-nav-toggle {
     display: none;
 }
@@ -501,48 +526,32 @@ body {
     overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;
 }
 
-/* --- Правила для экранов 800px и меньше --- */
 @media (max-width: 800px) {
-    
-    /* Уменьшаем отступы на мобильных */
     .site-header { padding: 15px 20px; }
     .container { padding: 0 20px; }
     .mod-list { grid-template-columns: 1fr; }
     .top-section { flex-direction: column; align-items: stretch; }
     .sidebar { width: 100%; }
-
-    /* 1. Скрываем десктопное меню */
-    .header-right-side {
-        display: none;
-    }
-
-    /* 2. Показываем кнопку-бургер */
+    .header-right-side { display: none; }
     .mobile-nav-toggle {
         display: block;
         position: fixed;
         z-index: 9999;
         top: 1.5rem;
         right: 1.5rem;
-
-        /* === ГЛАВНЫЙ ФИКС ЗДЕСЬ === */
-        width: 1.5rem;  /* УМЕНЬШИЛ РАЗМЕР КНОПКИ */
-        height: 1.5rem; /* УМЕНЬШИЛ РАЗМЕР КНОПКИ */
-        
+        width: 1.5rem;
+        height: 1.5rem;
         background-color: transparent;
         border: 0;
         cursor: pointer;
         background-repeat: no-repeat;
         background-position: center;
-        background-size: 100%; /* Теперь это 100% от маленького размера */
+        background-size: 100%;
         background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 100 80" width="40" height="40" xmlns="http://www.w3.org/2000/svg"%3E%3Crect width="100" height="15" fill="%23FFFFFF"%3E%3C/rect%3E%3Crect y="30" width="100" height="15" fill="%23FFFFFF"%3E%3C/rect%3E%3Crect y="60" width="100" height="15" fill="%23FFFFFF"%3E%3C/rect%3E%3C/svg%3E');
     }
-
-    /* Меняем иконку на крестик, когда меню открыто */
     .mobile-nav-toggle[aria-expanded="true"] {
         background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 100 100" width="40" height="40" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M10 10 L90 90 M90 10 L10 90" stroke="%23FFFFFF" stroke-width="15"/%3E%3C/svg%3E');
     }
-
-    /* Выезжающая панель (когда активна) */
     .header-right-side[data-visible="true"] {
         display: flex;
         position: fixed;
@@ -553,24 +562,18 @@ body {
         align-items: center;
         padding: 2em;
         gap: 3em;
-        background: hsl(233 33% 15% / 0.98);
+        background: hsla(158, 55%, 7%, 0.98);
         backdrop-filter: blur(1rem);
         transform: translateX(0%);
         transition: transform 350ms ease-out;
     }
-
-    /* Ссылки внутри выпадающего меню */
     .main-nav {
         flex-direction: column;
         gap: 2em;
         text-align: center;
     }
-    .main-nav a {
-        font-size: 1.2rem;
-    }
-    .lang-switcher {
-        margin-left: 0;
-    }
+    .main-nav a { font-size: 1.2rem; }
+    .lang-switcher { margin-left: 0; }
 }
 /*
 ========================================
@@ -581,17 +584,16 @@ body {
     margin-top: 30px;
 }
 
-/* Навигация по табам */
 .tab-nav {
     display: flex;
-    border-bottom: 2px solid #2a2a3a;
+    border-bottom: 2px solid var(--border-color);
     margin-bottom: 20px;
 }
 
 .tab-button {
     background: none;
     border: none;
-    color: #a0a0a0;
+    color: var(--text-muted);
     font-size: 16px;
     font-weight: 500;
     padding: 10px 20px;
@@ -601,40 +603,35 @@ body {
 }
 
 .tab-button:hover {
-    color: #ffffff;
+    color: var(--text-light);
 }
 
-/* Активная кнопка таба */
 .tab-button.active {
-    color: #ffffff;
+    color: var(--text-light);
 }
 
-/* Подчеркивание для активной кнопки */
 .tab-button.active::after {
     content: '';
     position: absolute;
-    bottom: -2px; /* Накладывается на border-bottom родителя */
+    bottom: -2px;
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #ffffff;
+    background-color: var(--text-light);
 }
 
-/* Панели с контентом */
-.tab-panel {
-    display: none; /* По умолчанию все панели скрыты */
-}
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
 
-.tab-panel.active {
-    display: block; /* Показываем только активную */
-}
-
-/* Стили для блока с версиями */
 .version-entry {
-    background-color: #1e1e2f;
+    background-color: var(--bg-panel);
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
 }
 
 .version-header {
@@ -647,11 +644,11 @@ body {
 .version-header h3 {
     margin: 0;
     font-size: 18px;
-    color: #ffffff;
+    color: var(--text-light);
 }
 
 .game-version-tag {
-    background-color: #c0392b;
+    background-color: var(--tag-bg);
     color: #fff;
     padding: 3px 8px;
     border-radius: 4px;
@@ -660,7 +657,7 @@ body {
 }
 
 .version-date {
-    color: #a0a0a0;
+    color: var(--text-muted);
     font-size: 14px;
     margin: 0 0 15px 0;
 }
@@ -668,36 +665,21 @@ body {
 .version-changelog {
     padding-left: 20px;
     margin: 0;
-    color: #c0c0c0;
+    color: var(--text-muted);
 }
 
 .version-changelog li {
     margin-bottom: 8px;
 }
-/*
-========================================
-    УЛУЧШЕННЫЕ СТИЛИ ДЛЯ ТАБА ВЕРСИЙ
-========================================
-*/
 
-/* Делаем основной блок гибким, чтобы разнести контент и кнопку по краям */
-.version-entry {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-}
-
-/* Область с кнопкой скачивания */
 .version-download-area {
-    flex-shrink: 0; /* Запрещаем кнопке сжиматься */
+    flex-shrink: 0;
 }
 
-/* Стили для самой кнопки */
 .btn-version-download {
     display: inline-block;
-    background-color: #2ecc71;
-    color: #ffffff;
+    background-color: var(--accent-primary);
+    color: var(--text-dark);
     padding: 10px 20px;
     font-size: 14px;
     font-weight: bold;
@@ -707,8 +689,5 @@ body {
 }
 
 .btn-version-download:hover {
-    background-color: #27ae60;
-}
-.mod-description-box h3 {
-    margin-top: 30px;
+    background-color: var(--accent-primary-hover);
 }
